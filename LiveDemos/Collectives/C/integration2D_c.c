@@ -19,46 +19,45 @@ int main(int argc, char *argv[])
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
     MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
-    while (1) {
-        if (myrank == 0) {
-              printf("Enter the number of bins only in the X axis\n"); 
-              scanf("%d", &n);
-        }
 
-        //broadcast n
-        MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        if (n <= 0) { 
-              MPI_Abort(MPI_COMM_WORLD, -1); }
-        else {
-              //turn on the stop watch
-              starttime = MPI_Wtime();
+    if (myrank == 0) {
+          //get the command line argument value
+          n = atoi( argv[1] );
+    }
 
-              //calculate the interval size, same for X and Y
-              h = 1.0*PI / (double) n; 
-              sum = 0.0; 
-              //distribute work in the X axis
-              for (i = myrank + 1; i <= n; i += numprocs) {
-                   x = h * ( (double)i - 0.5);
-                   //do regular integration in the Y axis
-                   for (j = 1; j<= n ; j++) {
-                        y = h * ( (double)j - 0.5);
-                        sum += sin( x + y);
-                   }
-              } 
-              local_integral = h * sum;
+    //broadcast n
+    MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    if (n <= 0) { 
+          MPI_Abort(MPI_COMM_WORLD, -1); }
+    else {
+          //turn on the stop watch
+          starttime = MPI_Wtime();
 
-              //do the reduction
-              MPI_Reduce(&local_integral, &integral, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+          //calculate the interval size, same for X and Y
+          h = 1.0*PI / (double) n; 
+          sum = 0.0; 
+          //distribute work in the X axis
+          for (i = myrank + 1; i <= n; i += numprocs) {
+               x = h * ( (double)i - 0.5);
+               //do regular integration in the Y axis
+               for (j = 1; j<= n ; j++) {
+                    y = h * ( (double)j - 0.5);
+                    sum += sin( x + y);
+               }
+          } 
+          local_integral = h * sum;
 
-              //turn off the stop watch
-              endtime = MPI_Wtime();
+          //do the reduction
+          MPI_Reduce(&local_integral, &integral, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
-              //print results on the root rank
-              if (myrank == 0) {
-                  printf("Integral value is %.16f, Error is %.16f\n", integral, fabs(integral - 0.0));
-                  printf("Time for loop and MPI_Reduce %.16f seconds\n", endtime-starttime);
-              }
-        }
+          //turn off the stop watch
+          endtime = MPI_Wtime();
+
+          //print results on the root rank
+          if (myrank == 0) {
+              printf("Integral value is %.18f, Error is %.18f\n", integral, fabs(integral - 0.0));
+              printf("Time for loop and MPI_Reduce %.16f seconds\n", endtime-starttime);
+          }
     }
     MPI_Finalize();
     return 0;

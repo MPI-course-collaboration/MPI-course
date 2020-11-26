@@ -16,3 +16,11 @@ terminal:
 
 * Clean out the executables
     make clean
+
+* Running scritps:
+    sbatch run.sh mpi_reduce_c
+    sbatch run.sh mpi_scatter_c
+    sbatch run.sh mpi_gather_c
+    sbatch run.sh mpi_reduce_c
+
+    sbatch run.sh mpi_broadcast_c 1000
