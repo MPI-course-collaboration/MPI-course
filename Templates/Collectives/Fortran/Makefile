@@ -3,7 +3,7 @@ FC = mpif90
 CFLAGS = -g
 
 objects = mpi_barrier_c mpi_broadcast_c mpi_gather_c mpi_scatter_c mpi_reduce_c
-all: $(objects)
+allc: $(objects)
 
 $(objects): %: %.c
 	        $(CC) $(CFLAGS) -o $@ $<
