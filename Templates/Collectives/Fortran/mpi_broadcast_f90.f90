@@ -6,14 +6,15 @@ use mpi
 implicit none
 
 integer myrank, numprocs, ierr, alpha
+CHARACTER(100) :: nchar
 
 call MPI_INIT(ierr)
 call MPI_COMM_RANK(MPI_COMM_WORLD, myrank, ierr)
 call MPI_COMM_SIZE(MPI_COMM_WORLD, numprocs, ierr)
 
 if (myrank .eq. 0) then
-  print *, 'Type some integer' 
-  read(*,*) alpha 
+  call get_command_argument(1,nchar)
+  read(nchar,*) alpha
 endif 
 
 !broadcast the value of alpha

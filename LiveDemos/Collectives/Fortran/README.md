@@ -16,3 +16,6 @@ terminal:
 
 * Clean out the executables
     make clean
+
+* Running scritps:
+    sbatch run.sh integration2D_f90 10000

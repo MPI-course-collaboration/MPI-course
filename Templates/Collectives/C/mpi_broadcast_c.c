@@ -14,8 +14,7 @@ MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
 MPI_Comm_rank(MPI_COMM_WORLD,&myrank);
 
 if (myrank == 0) {
-  printf("Type some integer\n"); 
-  scanf("%d", &alpha);
+  alpha = atoi( argv[1] );
 }
 
 //broadcast the value of alpha
