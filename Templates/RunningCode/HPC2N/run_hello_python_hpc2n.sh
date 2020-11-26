@@ -10,5 +10,7 @@ cat $0
 
 ml purge
 ml foss/2019b
+ml Python/3.7.4
+ml SciPy-bundle/2019.10-Python-3.7.4
 
-mpirun mpihello
+mpirun python hello_mpi.py
