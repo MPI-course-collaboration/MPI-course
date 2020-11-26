@@ -13,4 +13,4 @@ ml foss/2019b
 ml Python/3.7.4
 ml SciPy-bundle/2019.10-Python-3.7.4
 
-mpirun python hello_mpi.py
+mpirun python3 hello_mpi.py
