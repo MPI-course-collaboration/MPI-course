@@ -1,5 +1,5 @@
 CC = mpicc
-FC = mpif90
+FC = mpifort
 CFLAGS = -g
 
 objects = mpi_barrier_c mpi_broadcast_c mpi_gather_c mpi_scatter_c mpi_reduce_c
