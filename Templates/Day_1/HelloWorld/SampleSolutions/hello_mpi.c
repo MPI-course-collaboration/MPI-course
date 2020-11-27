@@ -9,7 +9,7 @@ int main(int argc, char **argv)
   int size, rank;
 
   // Copy the communicator
-  MPI_COMM my_world = MPI_COMM_WORLD;
+  MPI_Comm my_world = MPI_COMM_WORLD;
 
   MPI_Comm_size(my_world, &size);
   MPI_Comm_rank(my_world, &rank);
