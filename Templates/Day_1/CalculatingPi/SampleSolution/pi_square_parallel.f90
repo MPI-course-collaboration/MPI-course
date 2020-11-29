@@ -17,7 +17,7 @@ Program pi
 
   
   integer :: my_start, my_fin, my_elements
-  integer :: recvbuffer
+  double precision :: recvbuffer
   
   Call MPI_Init(merror)
 
@@ -41,16 +41,16 @@ Program pi
   ! communicate results
   ! ranks 1 and higher send to rank 0, rank 0 collects
   if (world_rank .gt. 0) then
-     call MPI_SEND(pi_square, 1, MPI_INTEGER, 0, 1, my_comm, merror)
+     call MPI_SEND(pi_square, 1, MPI_DOUBLE_PRECISION, 0, 1, my_comm, merror)
   else
      do i = 1, world_size-1
-        call MPI_RECV(recvbuffer, 1, MPI_INTEGER, 0, 1, my_comm, stat, merror)
+        call MPI_RECV(recvbuffer, 1, MPI_DOUBLE_PRECISION, i, 1, my_comm, stat, merror)
         pi_square = pi_square + recvbuffer
      end do
   
      print *, 'Pi**2 =', 6.0d0 * pi_square
 
-  enddo
+  endif
 
   Call MPI_FINALIZE(merror)
   
