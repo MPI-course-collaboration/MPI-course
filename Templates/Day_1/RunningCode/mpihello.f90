@@ -20,12 +20,6 @@ Program Mpihello
   Call MPI_GET_PROCESSOR_NAME(PROC_NAME, NAME_END, MERROR)
 
 
-  if (world_rank == 0) then     
-     print *,"MPI_MAX_PROCESSOR_NAME: ",MPI_MAX_PROCESSOR_NAME
-  endif
-
-  Call MPI_Barrier(mpi_comm_world, merror)
-
   print *,"I am rank ", world_rank," out of", world_size
 
   Call MPI_Barrier(mpi_comm_world, merror)
