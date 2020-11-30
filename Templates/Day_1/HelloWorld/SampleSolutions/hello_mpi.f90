@@ -5,12 +5,12 @@ program Mpihello
   Implicit none
 
   Integer :: world_size, world_rank
-  Integer :: merror
+  Integer :: ierr
 
-  Call MPI_Init(merror)
+  Call MPI_Init(ierr)
 
-  Call MPI_Comm_size(MPI_COMM_WORLD, world_size, merror)
-  Call MPI_Comm_rank(MPI_Comm_WORLD, world_rank, merror)
+  Call MPI_Comm_size(MPI_COMM_WORLD, world_size, ierr)
+  Call MPI_Comm_rank(MPI_Comm_WORLD, world_rank, ierr)
 
   print *,"I am rank ", world_rank," out of", world_size
 
