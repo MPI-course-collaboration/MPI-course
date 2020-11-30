@@ -13,18 +13,18 @@ Program pi
   integer :: my_comm
   integer :: world_size, world_rank
   integer, dimension(MPI_STATUS_SIZE) :: stat
-  integer :: merror
+  integer :: ierr
 
   
   integer :: my_start, my_fin, my_elements
   double precision :: recvbuffer
   
-  Call MPI_Init(merror)
+  Call MPI_Init(ierr)
 
   my_comm = MPI_COMM_WORLD
 
-  Call MPI_Comm_size(my_comm, world_size, merror)
-  Call MPI_Comm_rank(my_comm, world_rank, merror)
+  Call MPI_Comm_size(my_comm, world_size, ierr)
+  Call MPI_Comm_rank(my_comm, world_rank, ierr)
 
   ! calculating typical workload
   my_elements = (finval + world_size -1)/world_size
@@ -41,10 +41,10 @@ Program pi
   ! communicate results
   ! ranks 1 and higher send to rank 0, rank 0 collects
   if (world_rank .gt. 0) then
-     call MPI_SEND(pi_square, 1, MPI_DOUBLE_PRECISION, 0, 1, my_comm, merror)
+     call MPI_SEND(pi_square, 1, MPI_DOUBLE_PRECISION, 0, 1, my_comm, ierr)
   else
      do i = 1, world_size-1
-        call MPI_RECV(recvbuffer, 1, MPI_DOUBLE_PRECISION, i, 1, my_comm, stat, merror)
+        call MPI_RECV(recvbuffer, 1, MPI_DOUBLE_PRECISION, i, 1, my_comm, stat, ierr)
         pi_square = pi_square + recvbuffer
      end do
   
@@ -52,6 +52,6 @@ Program pi
 
   endif
 
-  Call MPI_FINALIZE(merror)
+  Call MPI_FINALIZE(ierr)
   
 end Program pi
