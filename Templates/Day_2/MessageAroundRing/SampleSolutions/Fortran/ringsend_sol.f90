@@ -46,6 +46,7 @@ contains
     integer, intent(in) :: up_neigh, dn_neigh
 
     integer :: dn_recv, up_recv
+    integer, dimension(MPI_STATUS_SIZE) :: stat
     integer :: merror
 
     integer :: dn_req, up_req
@@ -56,8 +57,8 @@ contains
     Call MPI_Send(up_send, 1, MPI_INTEGER, up_neigh, 1, comm, merror)
     Call MPI_Send(dn_send, 1, MPI_INTEGER, dn_neigh, 2, comm, merror)
 
-    Call MPI_Wait(dn_req, MPI_STATUS_IGNORE, merror)
-    Call MPI_Wait(up_req, MPI_STATUS_IGNORE, merror)
+    Call MPI_Wait(dn_req, stat, merror)
+    Call MPI_Wait(up_req, stat, merror)
 
     up_send = dn_recv
     dn_send = up_recv
