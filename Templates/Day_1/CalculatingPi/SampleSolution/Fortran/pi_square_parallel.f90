@@ -1,3 +1,5 @@
+!Material for the course:
+!An introduction to parallel programming using Message Passing with MPI
 Program pi
 
   use mpi
