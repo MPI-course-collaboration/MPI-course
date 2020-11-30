@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH -t 00:05:00
 #SBATCH -n 4
-#SBATCH -N 1
 #SBATCH -A SNIC2020-9-175
 #SBATCH --reservation=SNIC2020-9-175-day1
 

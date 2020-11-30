@@ -12,9 +12,7 @@ cat $0
 
 ml purge
 ml foss/2019b
-ml Python/3.7.4
-ml SciPy-bundle/2019.10-Python-3.7.4
 ml Forge/20.2-Ubuntu-16.04-x86_64
 
-ddt --connect mpirun python3 %allinea_python_debug%  hello_mpi.py
+ddt --connect mpirun python3 hello_mpi
 
