@@ -22,10 +22,10 @@ for i in range(my_start, my_fin):
     pi_square += 1.0 / (float(i+1)**2)
 
 if world_rank > 0:
-    my_world.mpi_send(pi_square, dest=0 )
+    my_world.send(pi_square, dest=0 )
 else:
     for i in range(1, world_size):
-        recv_buffer = my_world.mpi_recv(source=i)
+        recv_buffer = my_world.recv(source=i)
         pi_square += recv_buffer
 
     print("Pi^2 = {:.10f}".format(pi_square*6.0))
