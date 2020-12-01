@@ -11,7 +11,7 @@ world_size = my_world.Get_size()
 world_rank = my_world.Get_rank()
 
 # calculate typical workload
-my_elements = (finval + world_size -1)/world_size
+my_elements = (finval + world_size -1)//world_size
 
 my_start = 1 + my_elements * world_rank
 my_fin   = min(finval, my_elements * (world_rank + 1 ))
