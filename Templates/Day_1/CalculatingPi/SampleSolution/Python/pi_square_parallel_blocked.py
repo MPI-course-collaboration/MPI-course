@@ -2,7 +2,7 @@ from mpi4py import MPI
 
 # we use a smaller finval than in the C code
 # since loop in python is not as efficient
-finval = 10000000
+finval = 1000
 
 pi_square = 0.0
 
@@ -13,7 +13,7 @@ world_rank = my_world.Get_rank()
 # calculate typical workload
 my_elements = (finval + world_size -1)//world_size
 
-my_start = 1 + my_elements * world_rank
+my_start = my_elements * world_rank
 my_fin   = min(finval, my_elements * (world_rank + 1 ))
 
 print (world_rank, my_start, my_fin)
