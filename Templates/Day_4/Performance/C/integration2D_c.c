@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
           starttime = MPI_Wtime();
 
           //calculate the interval size, same for X and Y
+          //integration region 0 < x < Pi, 0 < y < Pi
           h = 1.0*PI / (double) n; 
           sum = 0.0; 
           //distribute work in the X axis
@@ -45,7 +46,8 @@ int main(int argc, char *argv[])
                     sum += sin( x + y);
                }
           } 
-          local_integral = h * sum;
+          //multiply by the area element h * h
+          local_integral = h * h * sum;
 
           //do the reduction
           MPI_Reduce(&local_integral, &integral, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);

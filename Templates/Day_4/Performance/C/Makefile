@@ -1,5 +1,5 @@
 CC = mpicc
-FC = mpif90
+FC = mpifort
 CFLAGS = -g -lm
 
 objects =  integration2D_c
