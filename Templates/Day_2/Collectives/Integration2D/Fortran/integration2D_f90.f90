@@ -32,6 +32,7 @@ else
      starttime = MPI_WTIME()
 
      !calculate the interval size, same for X and Y
+     !integration region 0 < x < Pi, 0 < y < Pi
      h = 1.0d0*PI/n
      sum = 0.0d0
      !distribute work in the X axis
@@ -43,7 +44,8 @@ else
             sum = sum + sin( x + y )
         enddo
      enddo
-     local_integral = h * sum
+     !multiply by the area element h * h
+     local_integral = h * h * sum
 
     !do the reduction
     call MPI_REDUCE(local_integral, integral, 1, MPI_DOUBLE_PRECISION, MPI_SUM, 0, MPI_COMM_WORLD, ierr)
