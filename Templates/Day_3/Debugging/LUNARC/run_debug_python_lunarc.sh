@@ -4,7 +4,7 @@
 #SBATCH -N 1
 
 #SBATCH -A mpicourse
-#SBATCH --reservation=mpiCourse
+#SBATCH --reservation=mpicourse
 
 #SBATCH -o result_mpi_debug_%j.out
 #SBATCH -e result_mpi_debug_%j.out

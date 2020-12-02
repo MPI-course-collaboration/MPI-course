@@ -14,5 +14,5 @@ ml purge
 ml foss/2019b
 ml Forge/20.2-Ubuntu-16.04-x86_64
 
-ddt --connect mpirun python3 hello_mpi
+ddt --connect mpirun mpihello
 
