@@ -34,7 +34,7 @@ for i in range(myrank, n, numprocs):
         y = h * (j + 0.5)
         mysum += math.sin(x + y)
 
-local_integral = h * mysum
+local_integral = h**2 * mysum
 
 #do the reduction
 integral = comm.reduce(local_integral, op=MPI.SUM, root=0)
