@@ -24,4 +24,4 @@ terminal:
 
 In this example you will calculate the double integral:
 
-<img src="https://render.githubusercontent.com/render/math?math=\int_{0}^{\pi}\int_{0}^{\pi} \sin(x+y) dx dy">
+<img src="https://render.githubusercontent.com/render/math?math=\int_{0}^{\pi}\int_{0}^{\pi} \sin(x %2B y) dx dy">
