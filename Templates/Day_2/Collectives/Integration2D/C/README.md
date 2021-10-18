@@ -19,3 +19,9 @@ terminal:
 
 * Running scritps:
     sbatch run.sh integration2D_c 10000
+
+* 2D integration background
+
+In this example you will calculate the double integral:
+
+$\int_{0}^{\pi}\int_{0}^{\pi} \sin(x+y) dx dy$
