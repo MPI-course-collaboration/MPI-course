@@ -33,7 +33,7 @@ direction only, for instance in the *x* direction. In this case, the first bin i
 be computed by process 1, the second bin by process 2, and so on up to the process *N*.
 This procedure will be repeated until the last bin *n* is computed, see the figure below.
 
-\*
+'''
 y
 |
 | Pi
@@ -50,7 +50,7 @@ y
 ---------------------------------------------->
                                      Pi       x
 
-\*
+'''
 
 
 
