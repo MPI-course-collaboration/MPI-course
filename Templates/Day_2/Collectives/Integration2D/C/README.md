@@ -24,7 +24,10 @@ terminal:
 
 In this example you will calculate the double integral:
 
-<img src="https://render.githubusercontent.com/render/math?math=\int_{0}^{\pi}\int_{0}^{\pi} \sin(x %2B y) dx dy">
+
+```math
+\int_{0}^{\pi}\int_{0}^{\pi} \sin(x %2B y) dx dy
+```
 
 One way to parallelize this calculation is as follows. We start by discretizing the 
 range in both *x* and *y* into bins of equal size. This will create a grid of *nxn* bins 
