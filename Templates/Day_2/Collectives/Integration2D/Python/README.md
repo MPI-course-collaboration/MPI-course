@@ -22,6 +22,12 @@ and run it by giving the desired number of bins as an argument:
 ./exec 1000 
 
 
+* Python
+
+```
+python ./integration2D_serial.py  10000
+```
+
 * 2D integration background
 
 In this example you will calculate the double integral:
