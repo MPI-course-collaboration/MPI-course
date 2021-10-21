@@ -11,8 +11,8 @@
 cat $0
 
 ml purge
-ml foss/2021a
-ml SciPy-bundle/2021.05 
+ml foss/2020b
+ml SciPy-bundle/2020.11 
 ml Forge/21.0.2-linux-x86_64
 
 ddt --connect mpirun python3 %allinea_python_debug%  hello_mpi.py
