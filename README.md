@@ -6,6 +6,7 @@ a collaborative effort between HPC2N, LUNARC and PDC.   C3SE participated in the
 
 ## Authors: 
 * Joachim Hein (LUNARC) 
+* Tor Kjellsson Lindblom (PDC) 
 * Xin Li (PDC) 
 * Pedro Ojeda (HPC2N)
 * Soheil Soltani (C3SE)
