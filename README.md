@@ -2,7 +2,7 @@
 # An introduction to parallel programming using Message Passing with MPI
 
 The course forms part of the SNIC training program.  It is offered as
-a collaborative effort between C3SE, HPC2N, LUNARC and PDC with support from ENCCS.
+a collaborative effort between HPC2N, LUNARC and PDC.   C3SE participated in the development of the course in 2020.
 
 ## Authors: 
 * Joachim Hein (LUNARC) 
@@ -13,7 +13,8 @@ a collaborative effort between C3SE, HPC2N, LUNARC and PDC with support from ENC
 # Resources
 The following resources are available to participants:
 
-* Machine accounts at C3SE, HPC2N, LUNARC - you got informed by email.
+* Machine accounts at HPC2N - you got informed by email.
 * [Git repository on github](https://github.com/SNIC-MPI-course/MPI-course) with templates, solutions and handouts.
-* [Google document](https://docs.google.com/document/d/1RJYToXAKCNMYiSL-Z9K15mgZqcWrE6GbCpOoFOTiu2o/edit?usp=sharing) with further instructions on the demonstrations and exercises.
-* [Google document](https://docs.google.com/document/d/1g3f02gxCuQEj-V1H-TQfW_hE3fwObAvy5-5p65t2nJ0/edit?usp=sharing) to communicate the instruction team. 
+* [Text document](https://lunduniversityo365-my.sharepoint.com/:w:/r/personal/math-joh_lu_se/_layouts/15/Doc.aspx?sourcedoc=%7BDE52EED3-D6BB-4DC9-B26B-281F160A378F%7D&file=Practicalities_MPIcourse.docx&action=default&mobileredirect=true) with further instructions on the demonstrations and exercises.
+* [Question and Answer document](https://lunduniversityo365-my.sharepoint.com/:w:/g/personal/math-joh_lu_se/EVzSP0mMn4NFvkNuKooD3JIBW1AxOmAay8HOkuGRehEx3w?e=7liIda) to communicate with the instruction team. 
+
