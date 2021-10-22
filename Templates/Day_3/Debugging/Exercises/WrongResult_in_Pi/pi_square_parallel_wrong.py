@@ -1,31 +1,27 @@
 from mpi4py import MPI
+import time
 
-# we use a smaller finval than in the C code
-# since loop in python is not as efficient
-finval = 1000
+comm = MPI.COMM_WORLD
+
+myrank = comm.Get_rank()
+numprocs = comm.Get_size()
+
+finval = 10000
+
+t0 = time.time()
+
+my_elements = (finval + numprocs - 1) // numprocs
+my_start = my_elements * myrank
+my_fin = max(finval, my_elements * (myrank + 1))
 
 pi_square = 0.0
-
-my_world = MPI.COMM_WORLD
-world_size = my_world.Get_size()
-world_rank = my_world.Get_rank()
-
-# calculate typical workload
-my_elements = (finval + world_size -1)//world_size
-
-my_start = my_elements * world_rank
-my_fin   = max(finval, my_elements * (world_rank + 1 ))
-
-print (world_rank, my_start, my_fin)
-
 for i in range(my_start, my_fin):
-    pi_square += 1.0 / (float(i+1)**2)
+    pi_square += 1.0 / float(i + 1)**2
 
-if world_rank > 0:
-    my_world.send(pi_square, dest=0 )
+if myrank > 0:
+    comm.send(pi_square, dest=0, tag=myrank)
 else:
-    for i in range(1, world_size):
-        recv_buffer = my_world.recv(source=i)
-        pi_square += recv_buffer
-
+    for source in range(1, numprocs):
+        pi_square += comm.recv(source=source, tag=source)
     print("Pi^2 = {:.10f}".format(pi_square*6.0))
+    print("Time spent: {:.6f} sec".format(time.time() - t0))
