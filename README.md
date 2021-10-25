@@ -16,6 +16,6 @@ The following resources are available to participants:
 
 * Machine accounts at HPC2N - you got informed by email.
 * [Git repository on github](https://github.com/SNIC-MPI-course/MPI-course) with templates, solutions and handouts.
-* [Text document](https://lunduniversityo365-my.sharepoint.com/:w:/r/personal/math-joh_lu_se/_layouts/15/Doc.aspx?sourcedoc=%7BDE52EED3-D6BB-4DC9-B26B-281F160A378F%7D&file=Practicalities_MPIcourse.docx&action=default&mobileredirect=true) with further instructions on the demonstrations and exercises.
+* [Text document](https://lunduniversityo365-my.sharepoint.com/:w:/r/personal/math-joh_lu_se/_layouts/15/Doc.aspx?sourcedoc=%7B7333E86B-2CD8-41DB-8A84-ADA0CA00D1A8%7D&file=Practicalities_MPIcourse_v2.docx&action=default&mobileredirect=true) with further instructions on the demonstrations and exercises.
 * [Question and Answer document](https://lunduniversityo365-my.sharepoint.com/:w:/g/personal/math-joh_lu_se/EVzSP0mMn4NFvkNuKooD3JIBW1AxOmAay8HOkuGRehEx3w?e=7liIda) to communicate with the instruction team. 
 
