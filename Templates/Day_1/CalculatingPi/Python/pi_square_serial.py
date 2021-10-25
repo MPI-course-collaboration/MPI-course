@@ -1,5 +1,3 @@
-# we use a smaller finval than in the C code
-# since loop in python is not as efficient
 finval = 10000000
 
 pi_square = 0.0
