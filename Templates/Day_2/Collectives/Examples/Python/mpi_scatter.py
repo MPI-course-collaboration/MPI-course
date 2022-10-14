@@ -19,4 +19,4 @@ else:
 
 recvbuf = comm.scatter(sendbuf,root=root)
 
-print("My rank= %d Array = %.3f %.3f %.3f" % (myrank,recvbuf[0],recvbuf[1],recvbuf[2]))
+print("My rank= %d, Array = %.3f %.3f %.3f" % (myrank,recvbuf[0],recvbuf[1],recvbuf[2]))

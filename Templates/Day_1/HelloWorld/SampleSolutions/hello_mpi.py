@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from mpi4py import MPI
 
 my_comm = MPI.COMM_WORLD

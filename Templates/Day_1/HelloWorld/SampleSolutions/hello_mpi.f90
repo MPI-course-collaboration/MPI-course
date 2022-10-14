@@ -13,6 +13,7 @@ program Mpihello
   Call MPI_Comm_rank(MPI_Comm_WORLD, world_rank, ierr)
 
   print *,"I am rank ", world_rank," out of", world_size
-
+ 
+  Call MPI_Finalize(ierr)
 end program Mpihello
 

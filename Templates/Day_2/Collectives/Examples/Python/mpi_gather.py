@@ -17,4 +17,4 @@ recvbuf = comm.gather(sendbuf[:counts], root=0)
 if myrank == 0:
     for sublist in recvbuf:
         for x in sublist:
-            print("Array %.3f " % x)
+            print("%.3f " % x)
