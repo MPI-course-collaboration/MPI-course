@@ -15,4 +15,4 @@ sendbuf=np.array([1.0*myrank,2.0*myrank,3.0*myrank,4.0*myrank])
 recvbuf = comm.reduce(sendbuf[:counts],op=MPI.SUM,root=root)
 
 if myrank == 0:
-    print("Array {:.3f}  {:.3f}  {:.3f} ".format(recvbuf[0],recvbuf[1],recvbuf[2]))
+    print("{:.3f}  {:.3f}  {:.3f} ".format(recvbuf[0],recvbuf[1],recvbuf[2]))
