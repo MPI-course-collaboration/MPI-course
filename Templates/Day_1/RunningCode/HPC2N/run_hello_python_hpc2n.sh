@@ -16,4 +16,4 @@ ml foss/2021b
 ml Python/3.9.6
 ml SciPy-bundle/2021.10
 
-mpirun python3 hello_mpi.py
+srun python3 hello_mpi.py
