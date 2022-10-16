@@ -14,5 +14,5 @@ ml purge
 ml foss/2021b
 ml Forge/22.0.1-linux-x86_64
 
-ddt --connect mpirun ./mpihello
+ddt --connect srun ./mpihello
 

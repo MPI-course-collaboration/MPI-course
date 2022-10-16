@@ -16,5 +16,6 @@ ml Python/3.9.6
 ml SciPy-bundle/2021.10 
 ml Forge/22.0.1-linux-x86_64
 
+# this currently needs mpirun as a job launcher and will not work with srun
 ddt --connect mpirun python3 %allinea_python_debug%  hello_mpi.py
 
