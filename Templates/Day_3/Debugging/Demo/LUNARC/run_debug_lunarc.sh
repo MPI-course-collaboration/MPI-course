@@ -15,5 +15,5 @@ ml purge
 ml foss/2022b
 ml linaro_forge/23.0.3
 
-ddt --connect mpirun mpihello
+ddt --connect mpirun hello_mpi
 
