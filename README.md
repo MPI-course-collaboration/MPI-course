@@ -1,8 +1,9 @@
 ## Material for the course:
 # An introduction to parallel programming using Message Passing with MPI
 
-The course forms part of the SNIC training program.  It is offered as
-a collaborative effort between HPC2N, LUNARC and PDC.   C3SE participated in the development of the course in 2020.
+The course forms part of the NAISS training program.  It is offered as
+a collaborative effort between HPC2N, LUNARC and PDC.   
+C3SE participated in the development of the course in 2020.
 
 ## Authors: 
 * Joachim Hein (LUNARC) 
