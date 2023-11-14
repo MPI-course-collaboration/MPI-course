@@ -8,7 +8,7 @@
 #SBATCH --reservation=mpi-course
 ##SBATCH --reservation=mpi-course-2day
 ##SBATCH --reservation=mpi-course-3day
-##SBATCH --reservation=mpi-cCourse-4day
+##SBATCH --reservation=mpi-course-4day
 
 
 #SBATCH -o result_mpihello_%j.out
