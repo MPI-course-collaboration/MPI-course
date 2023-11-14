@@ -16,7 +16,7 @@
 cat $0
 
 ml purge
-ml foss/2012b
+ml foss/2022b
 ml Python/3.10.8
 ml SciPy-bundle/2023.02
 ml mpi4py/3.1.4
