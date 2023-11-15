@@ -4,7 +4,7 @@
 #SBATCH --tasks-per-node=4     # number of processes per node
 #SBATCH -t 00:05:00            # job-time – here 5 min
 
-#SBATCH -A lu2023-7-12
+#SBATCH -A lu2023-7-75
 #SBATCH --reservation=mpi-course
 ##SBATCH --reservation=mpi-course-2day
 ##SBATCH --reservation=mpi-course-3day
