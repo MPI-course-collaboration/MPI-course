@@ -19,4 +19,4 @@ cat $0
 ml purge
 ml foss/2022b
 
-mpirun mpihello
+mpirun --bind-to core mpihello

@@ -21,4 +21,4 @@ ml Python/3.10.8
 ml SciPy-bundle/2023.02
 ml mpi4py/3.1.4
 
-mpirun python3 hello_mpi.py
+mpirun --bind-to core python3 hello_mpi.py
