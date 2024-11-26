@@ -4,11 +4,11 @@
 #SBATCH --tasks-per-node=4     # number of processes per node
 #SBATCH -t 00:05:00            # job-time – here 5 min
 
-#SBATCH -A lu2023-7-75
+#SBATCH -A lu2024-7-94
 #SBATCH --reservation=mpi-course
-##SBATCH --reservation=mpi-course-2day
-##SBATCH --reservation=mpi-course-3day
-##SBATCH --reservation=mpi-course-4day
+##SBATCH --reservation=mpi-course2
+##SBATCH --reservation=mpi-course3
+##SBATCH --reservation=mpi-course4
 
 
 #SBATCH -o result_mpihello_%j.out
@@ -17,6 +17,6 @@
 cat $0
 
 ml purge
-ml foss/2022b
+ml foss/2024a
 
 mpirun --bind-to core mpihello
