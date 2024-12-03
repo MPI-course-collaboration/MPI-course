@@ -5,10 +5,10 @@
 #SBATCH -t 00:05:00            # job-time – here 5 min
 
 #SBATCH -A lu2024-7-94
-#SBATCH --reservation=mpi-course
-##SBATCH --reservation=mpi-course2
-##SBATCH --reservation=mpi-course3
-##SBATCH --reservation=mpi-course4
+#SBATCH --reservation=MPI-course
+##SBATCH --reservation=MPI-course2
+##SBATCH --reservation=MPI-course3
+##SBATCH --reservation=MPI-course4
 
 
 #SBATCH -o result_mpihello_%j.out
