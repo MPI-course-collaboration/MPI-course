@@ -19,5 +19,5 @@ The following resources are available to participants:
 * Machine accounts at LUNARC - you got informed by email.
 * [Git repository on github](https://github.com/MPI-course-collaboration/MPI-course) with templates, solutions and handouts.
 * [Text document](./Document/Practicalities_MPIcourse_v3.pdf) with further instructions on the demonstrations and exercises.
-* [Question and Answer document](https://lunduniversityo365-my.sharepoint.com/:w:/g/personal/math-joh_lu_se/EekgQtTYrJpEqAnecbVosuIB7p9E611bvU3iAWDby1f3gg?e=kcc0T6) to communicate with the instruction team. 
+* [Question and Answer document](https://lunduniversityo365-my.sharepoint.com/:w:/g/personal/math-joh_lu_se/EekgQtTYrJpEqAnecbVosuIB7p9E611bvU3iAWDby1f3gg?e=kKwjW9) to communicate with the instruction team. 
 
