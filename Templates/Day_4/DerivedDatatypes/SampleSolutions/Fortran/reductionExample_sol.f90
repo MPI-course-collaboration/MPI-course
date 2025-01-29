@@ -30,13 +30,14 @@ Program ReductionTest
   print *,"On rank", my_rank," my_values contains", my_values
 
   ! setting up an MPI derived data type
-  Call MPI_Get_address(my_values%realpart, start_address, merror)
-  Call MPI_Get_address(my_values%intpart,  secnd_address, merror)
+  Call MPI_Get_address(my_values, start_adddress, merror)
+  Call MPI_Get_address(my_values%realpart, displ(1), merror)
+  Call MPI_Get_address(my_values%intpart,  displ(2), merror)
 
   bleng = 1
 
-  displ(1) = 0
-  displ(2) = secnd_address - start_address
+  displ(1) = displ(1) - start_address
+  displ(2) = displ(2) - start_address
 
   types(1) = MPI_double_precision
   types(2) = MPI_integer
