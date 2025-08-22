@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "mpi.h"
+#include <mpi.h>
 
 
 int main(int argc, char **argv)
@@ -14,7 +14,7 @@ int main(int argc, char **argv)
   MPI_Comm_size(my_world, &size);
   MPI_Comm_rank(my_world, &rank);
 
-  printf("I am rank %i out of %i!\n", rank, size);
+  printf("I am rank %d out of %d!\n", rank, size);
 
   MPI_Finalize();
 
