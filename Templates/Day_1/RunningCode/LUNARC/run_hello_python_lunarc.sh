@@ -8,10 +8,10 @@
 
 ## Accounting/Reservation
 #SBATCH -A lu2025-7-75 
-#SBATCH --reservation=MPI-course-1day
-##SBATCH --reservation=MPI-course-2day
-##SBATCH --reservation=MPI-course-3day
-##SBATCH --reservation=MPI-course-4day
+#SBATCH --reservation=mpi-course-1day
+##SBATCH --reservation=mpi-course-2day
+##SBATCH --reservation=mpi-course-3day
+##SBATCH --reservation=mpi-course-4day
 
 ## Output/Error files
 #SBATCH -o result_mpihello_%j.out
