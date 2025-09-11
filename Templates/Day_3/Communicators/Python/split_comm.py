@@ -10,7 +10,7 @@ comm_size_world = comm.Get_size()
 sum_world = comm.reduce(   , op=   , root=   )
 
 if old_rank == 0:
-    print("Average in comm_world = %f." % (float(sum_world)/comm_size_world))
+    print(f"Average in comm_world = {sum_world / comm_size_world}.")
 
 # Create the even and odd colors
 
@@ -26,7 +26,7 @@ new_rank = new_comm.      ()
 
 comm_size_split = new_comm.      ()
 
-print("New rank: %d, old rank: %d." % (new_rank, old_rank))
+print(f"New rank: {new_rank}, old rank: {old_rank}.")
 
 # Complete the reduction command to sum up the ranks into proc. 0 of each split group
 
@@ -35,10 +35,10 @@ sum_split = new_comm.reduce(   , op=   , root=   )
 if new_rank == 0:
     if color == 0:
         # print out avg. for the even group
-        print("Average in the even world = %f." % (float(sum_split)/comm_size_split))
+        print(f"Average in the even world = {sum_split / comm_size_split}.")
     else:
         # print out the avg. for the odd group
-        print("Average in the odd world = %f." % (float(sum_split)/comm_size_split))
+        print(f"Average in the odd world = {sum_split / comm_size_split}.")
 
 # Don't forget to free up the new communicator once you don't need it anymore
 
