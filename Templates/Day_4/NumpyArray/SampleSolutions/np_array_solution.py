@@ -3,36 +3,44 @@ import numpy as np
 
 comm = MPI.COMM_WORLD
 
-myrank = comm.Get_rank()
-numprocs = comm.Get_size()
+if comm.Get_rank() == 0:
 
-if myrank == 0:
+    # Initialize 1D arrays
     array_size = 123453
     a = np.random.rand(array_size)
     b = np.random.rand(array_size)
 
-    ave, res = divmod(array_size, numprocs)
-    counts = [ave + 1 if p < res else ave for p in range(numprocs)]
-    displs = [sum(counts[:p]) for p in range(numprocs)]
+    # Compute counts
+
+    base, rem = divmod(array_size, comm.Get_size())
+    counts = np.full(shape=comm.Get_size(), fill_value=base)
+    counts[:rem] += 1
 else:
     a, b = None, None
-    counts, displs = None, None
+    counts = None
+
+# Get local count (use lowercase scatter)
 
 local_count = comm.scatter(counts, root=0)
 
+# Create receiving buffers using counts
 recvbuf_a = np.zeros(local_count)
 recvbuf_b = np.zeros(local_count)
 
-comm.Scatterv([a, counts, displs, MPI.DOUBLE], recvbuf_a, root=0)
-comm.Scatterv([b, counts, displs, MPI.DOUBLE], recvbuf_b, root=0)
+# Scatter a and b
 
-local_sum = np.zeros(1)
-local_sum[0] = np.vdot(recvbuf_a, recvbuf_b)
+comm.Scatterv([a, counts], recvbuf_a, root=0)
+comm.Scatterv([b, counts], recvbuf_b, root=0)
+
+# Compute local sum
+local_sum = np.array([np.vdot(recvbuf_a, recvbuf_b)])
+
+# Compute total sum via Reduce
 
 total_sum = np.zeros(1)
 comm.Reduce(local_sum, total_sum, op=MPI.SUM, root=0)
 
-if myrank == 0:
-    ref = np.vdot(a,b)
+if comm.Get_rank() == 0:
+    ref = np.vdot(a, b)
     diff = abs(total_sum[0] - ref)
-    print('relative error: {:.3e}'.format(diff / abs(ref)))
+    print(f'relative error: {diff / abs(ref):.3e}')

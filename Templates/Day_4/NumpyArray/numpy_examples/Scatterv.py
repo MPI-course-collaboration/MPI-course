@@ -3,33 +3,28 @@ from mpi4py import MPI
 import numpy as np
 
 comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
 
-if rank == 0:
+if comm.Get_rank() == 0:
     sendbuf = np.arange(100, dtype='i')
-    # Determine the counts and displacements
+    # Determine the counts
     # for the scatter operation
-    counts = np.full(size, 100//size, dtype='i')
-    counts[:100%size] += 1
-    displs = np.insert(np.cumsum(counts), 0, 0)[:-1]
+    base, rem = divmod(sendbuf.size, comm.Get_size())
+    counts = np.full(shape=comm.Get_size(), fill_value=base, dtype='i')
+    counts[:rem] += 1
 
     print('counts:', counts)
-    print('displs:', displs)
-
 else:
     sendbuf = None
-    counts = np.empty(size, dtype='i')
-    displs = None  
+    counts = np.empty(comm.Get_size(), dtype='i')
 
 # Scatter the data
 # First we broadcast the counts to all processes
 comm.Bcast(counts, root=0)
 
 # Otherwise the recvbuf will have the same size as the sendbuf
-recvbuf = np.empty(counts[rank], dtype='i')
+recvbuf = np.empty(counts[comm.Get_rank()], dtype='i')
 
-comm.Scatterv([sendbuf, counts, displs, MPI.INT], recvbuf, root=0)
+comm.Scatterv([sendbuf, counts], recvbuf, root=0)
 
-print('Rank:', rank, 'recvbuf:', recvbuf)
+print('Rank:', comm.Get_rank(), 'recvbuf:', recvbuf)
 
