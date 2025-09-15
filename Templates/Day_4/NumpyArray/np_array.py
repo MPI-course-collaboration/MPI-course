@@ -3,7 +3,7 @@ import numpy as np
 
 comm = MPI.COMM_WORLD
 
-if comm.Get_rank() == 0:
+if comm.rank == 0:
 
     # Initialize 1D arrays
     array_size = 123453
@@ -12,7 +12,7 @@ if comm.Get_rank() == 0:
 
     # Compute counts
 
-    base, rem = divmod(array_size, comm.Get_size())
+    base, rem = divmod(array_size, comm.size)
     counts = 
 else:
     a, b = None, None
@@ -39,7 +39,7 @@ local_sum = np.array([np.vdot(recvbuf_a, recvbuf_b)])
 total_sum = np.zeros(1)
 comm.Reduce(   ,    , op=   , root=   )
 
-if comm.Get_rank() == 0:
+if comm.rank == 0:
     ref = np.vdot(a, b)
     diff = abs(total_sum[0] - ref)
     print(f'relative error: {diff / abs(ref):.3e}')
