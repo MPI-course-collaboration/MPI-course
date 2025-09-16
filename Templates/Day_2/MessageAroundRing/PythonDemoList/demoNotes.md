@@ -23,3 +23,11 @@ One solution of the issue is supplying extra buffer space to `irecv`.   In `ring
 To avoid the issue alltogether one can use non-blocking `isend` and blocking `recv`.  This is implemented in the script `ringsend_sol_list_isend.py`.  This script runs `vleng = 10000000`, 10 million list entries, without issues.
 
 Such a solution offers little scope for overlaping communication and calculation.
+
+## Remarks
+The reported number of list elements hold for LUNARC's COSMOS system when using:
+
+* GCC/13.3.0
+* OpenMPI/5.0.3
+* Python/3.12.3
+* mpi4py/4.0.1
