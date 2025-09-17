@@ -4,7 +4,7 @@ from mpi4py import MPI
 
 def exchange(comm, up_send, dn_send, up_neigh, dn_neigh):
 
-# this is incorrect.  It will block for large values of vleng
+# This code is incorrect.  It will block for large values of vleng
     
     comm.send(up_send, dest=up_neigh, tag=1)
     comm.send(dn_send, dest=dn_neigh, tag=2)
