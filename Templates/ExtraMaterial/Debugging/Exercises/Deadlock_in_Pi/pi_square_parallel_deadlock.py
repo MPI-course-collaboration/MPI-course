@@ -1,5 +1,4 @@
 from mpi4py import MPI
-import time
 
 comm = MPI.COMM_WORLD
 
@@ -8,7 +7,7 @@ numprocs = comm.Get_size()
 
 finval = 10000
 
-t0 = time.time()
+t0 = MPI.Wtime()
 
 my_elements = (finval + numprocs - 1) // numprocs
 my_start = my_elements * myrank
@@ -24,4 +23,4 @@ else:
     for source in range(1, numprocs):
         pi_square += comm.recv(source=source, tag=0)
     print("Pi^2 = {:.10f}".format(pi_square*6.0))
-    print("Time spent: {:.6f} sec".format(time.time() - t0))
+    print("Time spent: {:.6f} sec".format(MPI.Wtime() - t0))
